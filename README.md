@@ -149,3 +149,7 @@ GPL-3.0 — see [LICENSE](LICENSE). The bot panel under `src/agent/native` is
 vendored from [ComfyUI_frontend](https://github.com/Comfy-Org/ComfyUI_frontend)
 (GPL-3.0); `src/agent/native/UPSTREAM` records the commit it was taken from and
 `python scripts/agent/sync_native.py` refreshes it.
+
+### Local external-agent extension
+
+This checkout adds external Codex image/model/text stages and MCP task handoff while reusing ComfyTV history and previews. See [外部 Codex Stage 使用说明](docs/external-agent-zh.md) and [character workflow examples](examples/character-agent/). Stages enqueue local tasks; an external agent must claim and complete them. No background agent or paid generation is started automatically.

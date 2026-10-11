@@ -6,7 +6,7 @@ PENDING_STAGES: frozenset[str] = frozenset({
     'VideoUpscaleStage',
 })
 
-NON_STAGE_NODES: frozenset[str] = frozenset({'MaskCleanup', 'MakeProxyStage'})
+NON_STAGE_NODES: frozenset[str] = frozenset({'MaskCleanup', 'MakeProxyStage', 'AgentContext'})
 
 STAGE_META: dict[str, dict] = {
     'ProjectStage':                 {'kind': 'project'},
@@ -200,6 +200,10 @@ STAGE_META: dict[str, dict] = {
     'BlenderSceneStage':            {'kind': 'image',       'variant': 'loader'},
     'BlenderCameraStage':           {'kind': 'image'},
     'BlenderAnimationStage':        {'kind': 'video'},
+    'AgentImageStage': {'kind': 'image'},
+    'AgentModelStage': {'kind': 'model'},
+    'AgentTextStage': {'kind': 'text'},
+    'AgentVideoStage': {'kind': 'video'},
     'CustomStage':                  {'kind': 'custom',      'workflow_kind': 'custom'},
 }
 

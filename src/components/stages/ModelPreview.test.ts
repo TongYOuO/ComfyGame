@@ -1,4 +1,4 @@
-import { screen, waitFor } from '@testing-library/vue'
+import { screen, waitFor, fireEvent } from '@testing-library/vue'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import * as THREE from 'three'
 
@@ -223,4 +223,63 @@ describe('ModelPreview', () => {
     expect(h.controlsInstances[0].dispose).toHaveBeenCalled()
     expect(h.guardDispose).toHaveBeenCalled()
   })
+})
+
+
+it('plays and seeks embedded clips and restores shared mesh data after weight inspection', async () => {
+  const root = new THREE.Group()
+  const bone = new THREE.Bone()
+  bone.name = 'Hip'
+  root.add(bone)
+  const geometry = new THREE.BoxGeometry()
+  const count = geometry.getAttribute('position').count
+  geometry.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Uint16Array(count * 4), 4))
+  const weights = new Float32Array(count * 4)
+  for (let v = 0; v < count; v++) weights[v * 4] = 1
+  geometry.setAttribute('skinWeight', new THREE.Float32BufferAttribute(weights, 4))
+  const material = new THREE.MeshBasicMaterial()
+  const mesh = new THREE.SkinnedMesh(geometry, material)
+  mesh.bind(new THREE.Skeleton([bone]))
+  root.add(mesh)
+  const clip = new THREE.AnimationClip('步行', 2, [new THREE.NumberKeyframeTrack('Hip.position[x]', [0, 2], [0, 2])])
+  h.loadCustomModelAssets.mockResolvedValue({ template: root, clips: [clip] })
+  const { unmount } = renderPreview('/view?filename=animated.glb')
+  await screen.findByRole('button', { name: '播放动作' })
+  await fireEvent.input(screen.getByRole('slider', { name: '动作进度' }), { target: { value: '1' } })
+  expect(bone.position.x).toBeCloseTo(1)
+  await fireEvent.click(screen.getByRole('button', { name: '播放动作' }))
+  expect(screen.getByRole('button', { name: '暂停动作' })).toBeInTheDocument()
+  await fireEvent.update(screen.getByRole('combobox', { name: '骨骼权重' }), 'Hip')
+  expect(mesh.geometry).not.toBe(geometry)
+  expect(mesh.geometry.getAttribute('color').getX(0)).toBeCloseTo(1)
+  await fireEvent.update(screen.getByRole('combobox', { name: '骨骼权重' }), '')
+  expect(mesh.geometry).toBe(geometry)
+  expect(mesh.material).toBe(material)
+  unmount()
+})
+
+
+it('frames the current skin pose instead of a cached rest-pose box', async () => {
+  const root = new THREE.Group()
+  const bone = new THREE.Bone()
+  bone.name = 'Hip'
+  root.add(bone)
+  const geometry = new THREE.BoxGeometry()
+  const count = geometry.getAttribute('position').count
+  geometry.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Uint16Array(count * 4), 4))
+  const weights = new Float32Array(count * 4)
+  for (let i = 0; i < count; i++) weights[i * 4] = 1
+  geometry.setAttribute('skinWeight', new THREE.Float32BufferAttribute(weights, 4))
+  const mesh = new THREE.SkinnedMesh(geometry, new THREE.MeshBasicMaterial())
+  root.add(mesh)
+  mesh.bind(new THREE.Skeleton([bone]))
+  mesh.computeBoundingBox()
+  const clip = new THREE.AnimationClip('pose', 1, [new THREE.NumberKeyframeTrack('Hip.position[x]', [0, 1], [2, 2])])
+  h.loadCustomModelAssets.mockResolvedValue({ template: root, clips: [clip] })
+  const { emitted, unmount } = renderPreview('/view?filename=posed.glb')
+  await waitForViewChanged(() => emitted())
+  const center = h.controlsInstances[0].target.copy.mock.calls[0][0]
+  expect(center.x).toBeCloseTo(2)
+  expect(center.y).toBeCloseTo(0)
+  unmount()
 })

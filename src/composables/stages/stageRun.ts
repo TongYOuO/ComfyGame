@@ -1,3 +1,4 @@
+import { createAgentStageRun, isAgentStage } from './agentStageRun'
 import { cancelRemoteJob, remoteRun } from '@/api'
 import { isAutoPickerEnabled } from '@/composables/stages/autoPicker'
 import { outputHasLinks, spawnConsumingNode } from '@/composables/stages/spawnFollowUp'
@@ -36,6 +37,7 @@ export function createStageRun(opts: {
   variant: StageVariant
   refresh: () => void
 }): StageRunController {
+  if (isAgentStage(opts.node)) return createAgentStageRun(opts)
   const { node, state, store, kind, variant, refresh } = opts
   const executionStore = useExecutionStore()
 

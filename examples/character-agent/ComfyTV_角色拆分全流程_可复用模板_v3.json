@@ -1,0 +1,6255 @@
+{
+  "id": "54a90596-7f45-463d-9fa2-caf72498e1ac",
+  "revision": 0,
+  "last_node_id": 55,
+  "last_link_id": 104,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        -1220,
+        -1380
+      ],
+      "size": [
+        560,
+        720
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "全局区域提示词 · 每次派发携带",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "【角色拆分全流程复用规则 v2】\n以当前主形象为设计依据，先实际看图，建立部件清单、配饰清单、左右非对称特征和可见/不可见结构记录。当前画布预置头发、肤色素体、服装、无发头部、鞋子五条独立分支；换图后先重写各分支的设计描述，不把示例角色的金发、红裙、高跟鞋、首饰数量、身体尺寸或修复坐标套到新角色。缺少或增加部件时由外部Codex调整分支及连线，不能声称五条分支自动适配所有服饰结构。遮挡部分的补全须标注推断。\n拆分图仍走已连接本地Qwen工作流；每部件正/背/左分别独立出图、独立检查、独立多视图建模，不上传拼图，不把整体角色生成后切割冒充各部件单独生成。实际需要右视图时新增独立右视分支及对应槽位，不能把左侧翻转冒充非对称右侧。区域提示词只自动注入Agent任务；执行固定Qwen节点前，Codex须将当前部件要求写入该节点main_prompt。\n先审输入图一致性，再付费建模。Tripo承担智能网格多视图、UV、贴图、绑定及动作；Codex通过现有工具执行、审查并回填真实结果。保留独立高精母版、原始下载、UV、法线及有效材质。逐部件显示与隐藏检查，保存整身正侧背和细节近景。合格不改；有证据才最小修复，不为经过审查节点而重绘、重烘焙或重绑。所有修复参数根据当前角色测量，不复用上一角色的坐标阈值。\n质量依次检查：拆分一致性→单件轮廓与结构→拼接比例及穿插→UV与材质→静止几何与蒙皮→真实动作→实际导出回读。前后使用同镜头、同光照和同一动作；把原画还原度与修复前后改善分别报告，不能把三维化说成画质必然提升。失败写明具体部件、证据、上游节点与最小返修方案，修复后重新验证受影响下游，不把旧检查结果用于新输入。节点完成不等于美术验收通过。\n执行前建立 output/comfytv/角色名_本次时间/ 独立目录和输入来源记录；本轮内可续用已确认的任务，跨角色不得沿用旧产物或费用授权。遵循用户当前有效积分授权，不重复扣费、不充值升级、不导入UE。最终交付各部件、拼接blend、GLB/FBX、实际贴图、动作视频、原画对照、问题记录和工作流。未执行项目、推断内容、物理未模拟及残留缺陷须如实说明。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "【角色拆分全流程复用规则 v2】\n以当前主形象为设计依据，先实际看图，建立部件清单、配饰清单、左右非对称特征和可见/不可见结构记录。当前画布预置头发、肤色素体、服装、无发头部、鞋子五条独立分支；换图后先重写各分支的设计描述，不把示例角色的金发、红裙、高跟鞋、首饰数量、身体尺寸或修复坐标套到新角色。缺少或增加部件时由外部Codex调整分支及连线，不能声称五条分支自动适配所有服饰结构。遮挡部分的补全须标注推断。\n拆分图仍走已连接本地Qwen工作流；每部件正/背/左分别独立出图、独立检查、独立多视图建模，不上传拼图，不把整体角色生成后切割冒充各部件单独生成。实际需要右视图时新增独立右视分支及对应槽位，不能把左侧翻转冒充非对称右侧。区域提示词只自动注入Agent任务；执行固定Qwen节点前，Codex须将当前部件要求写入该节点main_prompt。\n先审输入图一致性，再付费建模。Tripo承担智能网格多视图、UV、贴图、绑定及动作；Codex通过现有工具执行、审查并回填真实结果。保留独立高精母版、原始下载、UV、法线及有效材质。逐部件显示与隐藏检查，保存整身正侧背和细节近景。合格不改；有证据才最小修复，不为经过审查节点而重绘、重烘焙或重绑。所有修复参数根据当前角色测量，不复用上一角色的坐标阈值。\n质量依次检查：拆分一致性→单件轮廓与结构→拼接比例及穿插→UV与材质→静止几何与蒙皮→真实动作→实际导出回读。前后使用同镜头、同光照和同一动作；把原画还原度与修复前后改善分别报告，不能把三维化说成画质必然提升。失败写明具体部件、证据、上游节点与最小返修方案，修复后重新验证受影响下游，不把旧检查结果用于新输入。节点完成不等于美术验收通过。\n执行前建立 output/comfytv/角色名_本次时间/ 独立目录和输入来源记录；本轮内可续用已确认的任务，跨角色不得沿用旧产物或费用授权。遵循用户当前有效积分授权，不重复扣费、不充值升级、不导入UE。最终交付各部件、拼接blend、GLB/FBX、实际贴图、动作视频、原画对照、问题记录和工作流。未执行项目、推断内容、物理未模拟及残留缺陷须如实说明。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 3,
+      "type": "ComfyTV.ImageLoaderStage",
+      "pos": [
+        -1200,
+        1000
+      ],
+      "size": [
+        320,
+        430
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            1,
+            3,
+            7,
+            13,
+            15,
+            19,
+            29,
+            47,
+            48,
+            51,
+            57,
+            88,
+            92,
+            96,
+            100,
+            104
+          ]
+        }
+      ],
+      "title": "① 替换主形象图 · 示例不代表本次输入",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageLoaderStage",
+        "comfytv_stage_uid": "af74a5fb-0b59-49ce-bd6b-1d3ab5a0f680",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "example.png",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "image": "example.png",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 4,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 1
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            2,
+            85
+          ]
+        }
+      ],
+      "title": "② 头发 · 正面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "cbf45251-058f-4dbd-8ca2-9b7ae6ed23de",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784390,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784390,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 5,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        540,
+        0
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 3
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            4,
+            86
+          ]
+        }
+      ],
+      "title": "② 头发 · 背面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "b6408c8e-b700-48b7-88b6-2c7b93affd02",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784416,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784416,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 6,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        1080,
+        0
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 5
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            6,
+            87
+          ]
+        }
+      ],
+      "title": "② 头发 · 左侧 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "893694b0-9004-4431-9198-54fe84cc3421",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        47110689,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 47110689,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 8,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        2160,
+        0
+      ],
+      "size": [
+        460,
+        966
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": 62
+        },
+        {
+          "localized_name": "text1",
+          "name": "texts.text1",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "text2",
+          "name": "texts.text2",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 2
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 4
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 6
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "title": "③ 头发 · 三视图建模",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "8f69ead5-429d-4efd-bf10-9176335791cd",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：核对刘海方向、发旋、层次、发束数量与长短、外轮廓和高光色块；独立假发内部不带头皮、脸、皮肤或首饰。建模检查发尖是否粘连、发束是否融成厚块、根部内腔能否容纳头部。保留设计中的尖锐边缘，不能全局磨圆抹平。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：核对刘海方向、发旋、层次、发束数量与长短、外轮廓和高光色块；独立假发内部不带头皮、脸、皮肤或首饰。建模检查发尖是否粘连、发束是否融成厚块、根部内腔能否容纳头部。保留设计中的尖锐边缘，不能全局磨圆抹平。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 9,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        0,
+        1400
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 7
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            8,
+            9,
+            11,
+            89
+          ]
+        }
+      ],
+      "title": "② 素体 · 正面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "4d85cde9-2cef-40e1-aae0-4db70965f88c",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784444,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的素体独立组件。从颈根到脚底的无头光滑建模人偶，保留参考自然肤色、色差和体型比例，双臂稍张开，手脚完整；不绘私密解剖细节，无服装、鞋、头发或配饰。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784444,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的素体独立组件。从颈根到脚底的无头光滑建模人偶，保留参考自然肤色、色差和体型比例，双臂稍张开，手脚完整；不绘私密解剖细节，无服装、鞋、头发或配饰。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 10,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        540,
+        1400
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 9
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            10,
+            90
+          ]
+        }
+      ],
+      "title": "② 素体 · 背面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "0eddf282-d2bf-42cb-9f76-857839ced1e7",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        47201137,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的素体独立组件。从颈根到脚底的无头光滑建模人偶，保留参考自然肤色、色差和体型比例，双臂稍张开，手脚完整；不绘私密解剖细节，无服装、鞋、头发或配饰。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 47201137,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的素体独立组件。从颈根到脚底的无头光滑建模人偶，保留参考自然肤色、色差和体型比例，双臂稍张开，手脚完整；不绘私密解剖细节，无服装、鞋、头发或配饰。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 11,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        1080,
+        1400
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 11
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            12,
+            91
+          ]
+        }
+      ],
+      "title": "② 素体 · 左侧 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "487782e4-09af-43ee-9e83-c7df7027fc66",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        47201151,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的素体独立组件。从颈根到脚底的无头光滑建模人偶，保留参考自然肤色、色差和体型比例，双臂稍张开，手脚完整；不绘私密解剖细节，无服装、鞋、头发或配饰。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 47201151,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的素体独立组件。从颈根到脚底的无头光滑建模人偶，保留参考自然肤色、色差和体型比例，双臂稍张开，手脚完整；不绘私密解剖细节，无服装、鞋、头发或配饰。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 13,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        2160,
+        1400
+      ],
+      "size": [
+        460,
+        966
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": 67
+        },
+        {
+          "localized_name": "text1",
+          "name": "texts.text1",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "text2",
+          "name": "texts.text2",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 8
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 10
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 12
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "title": "③ 肤色素体 · 三视图建模",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "91129e7c-1b00-4fd8-a8b5-47520b0052b0",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：保留参考肤色和体型比例，光滑人偶表面不画私密解剖细节；无头无衣无鞋，四肢与手脚完整。检查肩腋、肘、手指、腰胯、膝踝和脚趾；真实REST网格必须自然，不能用后续衣服遮住坏几何。关节面流与体积优先，不能以归一化权重代替变形检查。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：保留参考肤色和体型比例，光滑人偶表面不画私密解剖细节；无头无衣无鞋，四肢与手脚完整。检查肩腋、肘、手指、腰胯、膝踝和脚趾；真实REST网格必须自然，不能用后续衣服遮住坏几何。关节面流与体积优先，不能以归一化权重代替变形检查。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 14,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        0,
+        2800
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 13
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            14,
+            17,
+            93
+          ]
+        }
+      ],
+      "title": "② 裙子 · 正面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "f983e325-c271-42cb-af4c-215244dbe034",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784452,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的服装独立组件。参考角色的完整独立服装，立体中空，不夹带人体、皮肤、其他部件或衣架，保持实际领口、开口、肩带/袖口、褶皱、边缘、颜色和厚度；多件独立衣物应先由Codex拆成额外分支。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784452,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的服装独立组件。参考角色的完整独立服装，立体中空，不夹带人体、皮肤、其他部件或衣架，保持实际领口、开口、肩带/袖口、褶皱、边缘、颜色和厚度；多件独立衣物应先由Codex拆成额外分支。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 15,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        540,
+        2800
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 15
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            16,
+            94
+          ]
+        }
+      ],
+      "title": "② 裙子 · 背面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "9113f8ff-638f-4bb6-86df-fd5cd5403633",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784460,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的服装独立组件。参考角色的完整独立服装，立体中空，不夹带人体、皮肤、其他部件或衣架，保持实际领口、开口、肩带/袖口、褶皱、边缘、颜色和厚度；多件独立衣物应先由Codex拆成额外分支。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784460,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的服装独立组件。参考角色的完整独立服装，立体中空，不夹带人体、皮肤、其他部件或衣架，保持实际领口、开口、肩带/袖口、褶皱、边缘、颜色和厚度；多件独立衣物应先由Codex拆成额外分支。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 16,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        1080,
+        2800
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 17
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            18,
+            95
+          ]
+        }
+      ],
+      "title": "② 裙子 · 左侧 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "330710b7-31d1-4ff3-b8a6-69bdd8e047f6",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        47276452,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的服装独立组件。参考角色的完整独立服装，立体中空，不夹带人体、皮肤、其他部件或衣架，保持实际领口、开口、肩带/袖口、褶皱、边缘、颜色和厚度；多件独立衣物应先由Codex拆成额外分支。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 47276452,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的服装独立组件。参考角色的完整独立服装，立体中空，不夹带人体、皮肤、其他部件或衣架，保持实际领口、开口、肩带/袖口、褶皱、边缘、颜色和厚度；多件独立衣物应先由Codex拆成额外分支。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 18,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        2160,
+        2800
+      ],
+      "size": [
+        460,
+        966
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": 72
+        },
+        {
+          "localized_name": "text1",
+          "name": "texts.text1",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "text2",
+          "name": "texts.text2",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 14
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 16
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 18
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "title": "③ 裙子 · 三视图建模",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "829abfbd-04f7-452d-b89a-f021df4d351e",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：此分支代表参考图中的实际服装，先按新图确认是否为裙装。核对领口、肩带/袖口、开口、厚度、腰线、裙摆、褶皱、内外表面及缝边。应为独立中空衣物，无人体、人台或其他部件残留；薄边不破洞，不把衣服生成成实心身体。多件衣物需独立分支，禁止擅自合成一件裙子。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：此分支代表参考图中的实际服装，先按新图确认是否为裙装。核对领口、肩带/袖口、开口、厚度、腰线、裙摆、褶皱、内外表面及缝边。应为独立中空衣物，无人体、人台或其他部件残留；薄边不破洞，不把衣服生成成实心身体。多件衣物需独立分支，禁止擅自合成一件裙子。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 19,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        0,
+        4200
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 19
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            20,
+            21,
+            23,
+            97
+          ]
+        }
+      ],
+      "title": "② 头部 · 正面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "e1440e96-6251-419e-81d7-d33b5d35e5e0",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784472,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头部独立组件。同一角色完整独立无发头部及短颈根，保持脸型、五官身份、耳形、肤色、眼色，移除头发、首饰、肩膀和衣服。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784472,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头部独立组件。同一角色完整独立无发头部及短颈根，保持脸型、五官身份、耳形、肤色、眼色，移除头发、首饰、肩膀和衣服。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 20,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        540,
+        4200
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 21
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            22,
+            98
+          ]
+        }
+      ],
+      "title": "② 头部 · 背面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "cf2ece67-e487-4f68-a2c7-c6e72e1ac055",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        47442220,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头部独立组件。同一角色完整独立无发头部及短颈根，保持脸型、五官身份、耳形、肤色、眼色，移除头发、首饰、肩膀和衣服。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 47442220,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头部独立组件。同一角色完整独立无发头部及短颈根，保持脸型、五官身份、耳形、肤色、眼色，移除头发、首饰、肩膀和衣服。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 21,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        1080,
+        4200
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 23
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            24,
+            99
+          ]
+        }
+      ],
+      "title": "② 头部 · 左侧 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "cf16c692-397f-408d-85b4-208277a9b07e",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        47442232,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头部独立组件。同一角色完整独立无发头部及短颈根，保持脸型、五官身份、耳形、肤色、眼色，移除头发、首饰、肩膀和衣服。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 47442232,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头部独立组件。同一角色完整独立无发头部及短颈根，保持脸型、五官身份、耳形、肤色、眼色，移除头发、首饰、肩膀和衣服。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 23,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        2160,
+        4200
+      ],
+      "size": [
+        460,
+        966
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": 77
+        },
+        {
+          "localized_name": "text1",
+          "name": "texts.text1",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "text2",
+          "name": "texts.text2",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 20
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 22
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 24
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "title": "③ 无发头部 · 三视图建模",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "9a7eaf0f-099e-409a-a8b0-c00dfcdc3132",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：保持同一角色五官身份、头脸比例、眼形眼色、耳形、嘴角及颈接口；无发独立头部，皮肤与素体一致。检查眼睑唇缘鼻翼耳廓的轮廓和表面连续性、颈缝及法线，不因磨圆把表情和脸型改掉。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：保持同一角色五官身份、头脸比例、眼形眼色、耳形、嘴角及颈接口；无发独立头部，皮肤与素体一致。检查眼睑唇缘鼻翼耳廓的轮廓和表面连续性、颈缝及法线，不因磨圆把表情和脸型改掉。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 24,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        0,
+        5600
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 83
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            26,
+            101
+          ]
+        }
+      ],
+      "title": "② 鞋子 · 单鞋正面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "a534079e-17eb-4ef1-b021-61446d9b1321",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        50594723,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的鞋子独立组件。当前参考款式的同一只完整左脚空鞋，保留鞋头、鞋底、鞋跟、鞋口及绑带结构、颜色和厚度，不能附带脚腿或额外鞋；不强制高跟、红色或特定鞋款。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 50594723,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的鞋子独立组件。当前参考款式的同一只完整左脚空鞋，保留鞋头、鞋底、鞋跟、鞋口及绑带结构、颜色和厚度，不能附带脚腿或额外鞋；不强制高跟、红色或特定鞋款。 输出严格正面正交视图，完全正对前方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 25,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        540,
+        5600
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 84
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            28,
+            102
+          ]
+        }
+      ],
+      "title": "② 鞋子 · 单鞋背面 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "43d3beb8-f16d-4df3-8848-670603d2d968",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        50595026,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的鞋子独立组件。当前参考款式的同一只完整左脚空鞋，保留鞋头、鞋底、鞋跟、鞋口及绑带结构、颜色和厚度，不能附带脚腿或额外鞋；不强制高跟、红色或特定鞋款。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 50595026,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的鞋子独立组件。当前参考款式的同一只完整左脚空鞋，保留鞋头、鞋底、鞋跟、鞋口及绑带结构、颜色和厚度，不能附带脚腿或额外鞋；不强制高跟、红色或特定鞋款。 输出严格背面正交视图，背面不得出现正面五官或正面结构。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 26,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        1080,
+        5600
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 29
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            30,
+            83,
+            84,
+            103
+          ]
+        }
+      ],
+      "title": "② 鞋子 · 单鞋左侧 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "90cbbba6-ca81-4f92-8279-60cf148e8b08",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        50391369,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的鞋子独立组件。当前参考款式的同一只完整左脚空鞋，保留鞋头、鞋底、鞋跟、鞋口及绑带结构、颜色和厚度，不能附带脚腿或额外鞋；不强制高跟、红色或特定鞋款。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 50391369,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的鞋子独立组件。当前参考款式的同一只完整左脚空鞋，保留鞋头、鞋底、鞋跟、鞋口及绑带结构、颜色和厚度，不能附带脚腿或额外鞋；不强制高跟、红色或特定鞋款。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 28,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        2160,
+        5600
+      ],
+      "size": [
+        460,
+        966
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": 82
+        },
+        {
+          "localized_name": "text1",
+          "name": "texts.text1",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "text2",
+          "name": "texts.text2",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 26
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 28
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 30
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "title": "③ 鞋子 · 三视图建模",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "034a2538-d757-452a-bb99-5f5fa706da8b",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：按参考确认鞋款、左右差异及露肤结构；核对鞋头、鞋口、鞋底、鞋跟、绑带与扣件的厚度、连接及负空间。仅对确认为对称的鞋款，先生成同一只鞋再镜像配对；有非对称设计时分别生成左右鞋。不能生成额外鞋、跨鞋横条或夹带脚腿。拼接时脚趾与脚跟在封闭鞋面内，开放鞋口正常露肤，鞋带不能截穿皮肤。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "先查看本部件三张独立输入与主图，通过角度、比例、颜色和结构一致性检查后，才用Tripo智能网格多视图建模。优先原已验证的P2.0/Quad/当前服务支持最大面数配置；执行前核实实际页面选项和积分，不静默退回单图默认模型。前、左、后按真实角度分别填槽，保存设置、输入文件及任务ID。保留本次原始模型、UV、贴图、实际面数与费用；逐件正侧背和近景审查，报告实际通过/失败项目。逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n本部件重点：按参考确认鞋款、左右差异及露肤结构；核对鞋头、鞋口、鞋底、鞋跟、绑带与扣件的厚度、连接及负空间。仅对确认为对称的鞋款，先生成同一只鞋再镜像配对；有非对称设计时分别生成左右鞋。不能生成额外鞋、跨鞋横条或夹带脚腿。拼接时脚趾与脚跟在封闭鞋面内，开放鞋口正常露肤，鞋带不能截穿皮肤。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 29,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        2940,
+        2200
+      ],
+      "size": [
+        460,
+        986
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 47
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 31
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 32
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model2",
+          "name": "models.model2",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 33
+        },
+        {
+          "localized_name": "model3",
+          "name": "models.model3",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 34
+        },
+        {
+          "localized_name": "model4",
+          "name": "models.model4",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 35
+        },
+        {
+          "localized_name": "model5",
+          "name": "models.model5",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "title": "④ Blender · 五部件拼接与拓扑",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "c3e76c10-4cdb-43c4-8e4a-8d95526af0d1",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取本轮已分别生成且逐件验收的全部部件及当前主图。先清点部件与配饰；新增配饰须单独对象建模并记录来源，不凭记忆套用旧角色。按当前参考比例与各部件实际尺寸拼接，保留独立高精母版、UV和材质。检查头身/颈缝、头发与头皮、耳饰与头发、衣服与身体、手腕配饰、脚鞋。整体正侧背及每个连接处近景都要检查。\n拼接前后隐藏头发与衣服，比较无遮挡身体真实REST网格，特别是肩腋、腰胯和四肢。禁止按整个坐标框把身体径向压进衣服；穿插优先局部调整衣物或使用可撤销的服装内身体遮罩，保护四肢和关节面流。鞋脚依据当前鞋楦、鞋口和脚形局部平滑贴合，脚趾/脚跟不得穿封闭鞋面，开放部位保留自然露肤；不能隐藏整只脚掩盖问题。记录修改对象、理由、范围和前后对照，不复用某个角色固定坐标。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n输出可编辑blend、GLB、独立部件及整身/局部对照；几何问题先回到对应部件修复，不能带入UV或绑骨。\n【接缝专项】头颈/肤色、头皮发际、耳垂与耳饰、肩带/衣边、腕环与前臂、手腕和脚鞋逐项近景验收；附件必须按当前网格拟合，不用固定坐标摆放。局部复用经用户认可部件时记录来源，不冒充新生成；检查旧形态键和绑定数据是否兼容。\n【本轮接缝经验】腕部拼接须检查真实边界，必要时用两侧边界顶点建立连接面并继承对应蒙皮权重，不能只靠腕环遮盖。暂时隐藏头发检查后背衣物连接；身体遮罩边界不得露出。需要补接衣物时优先局部补片，匹配原衣物UV、材质及身体/衣物两侧权重，不能水平截断身体或盲目压缩躯干。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取本轮已分别生成且逐件验收的全部部件及当前主图。先清点部件与配饰；新增配饰须单独对象建模并记录来源，不凭记忆套用旧角色。按当前参考比例与各部件实际尺寸拼接，保留独立高精母版、UV和材质。检查头身/颈缝、头发与头皮、耳饰与头发、衣服与身体、手腕配饰、脚鞋。整体正侧背及每个连接处近景都要检查。\n拼接前后隐藏头发与衣服，比较无遮挡身体真实REST网格，特别是肩腋、腰胯和四肢。禁止按整个坐标框把身体径向压进衣服；穿插优先局部调整衣物或使用可撤销的服装内身体遮罩，保护四肢和关节面流。鞋脚依据当前鞋楦、鞋口和脚形局部平滑贴合，脚趾/脚跟不得穿封闭鞋面，开放部位保留自然露肤；不能隐藏整只脚掩盖问题。记录修改对象、理由、范围和前后对照，不复用某个角色固定坐标。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n输出可编辑blend、GLB、独立部件及整身/局部对照；几何问题先回到对应部件修复，不能带入UV或绑骨。\n【接缝专项】头颈/肤色、头皮发际、耳垂与耳饰、肩带/衣边、腕环与前臂、手腕和脚鞋逐项近景验收；附件必须按当前网格拟合，不用固定坐标摆放。局部复用经用户认可部件时记录来源，不冒充新生成；检查旧形态键和绑定数据是否兼容。\n【本轮接缝经验】腕部拼接须检查真实边界，必要时用两侧边界顶点建立连接面并继承对应蒙皮权重，不能只靠腕环遮盖。暂时隐藏头发检查后背衣物连接；身体遮罩边界不得露出。需要补接衣物时优先局部补片，匹配原衣物UV、材质及身体/衣物两侧权重，不能水平截断身体或盲目压缩躯干。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 32,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        4220,
+        2200
+      ],
+      "size": [
+        400,
+        906
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 48
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 49
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 38
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "title": "⑥ Tripo · 贴图生成",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "5928236d-d63b-40fd-a6f0-4d0d36c17aaf",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "使用本轮UV模型和角色参考在Tripo生成贴图。保持原设计眼眉、青蓝瞳色、自然肤色、金黄头发及浅绿色高光、红裙和红色漆皮鞋、金色与绿色饰品。优先按部件处理并保留已合格的局部材质，避免整身一次生成导致串色。保留BaseColor、Normal及服务实际提供的PBR贴图与正确色彩空间。下载原始结果，回填模型并附贴图、任务ID、设置和费用；检查发现问题交下一阶段最小修复。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "使用本轮UV模型和角色参考在Tripo生成贴图。保持原设计眼眉、青蓝瞳色、自然肤色、金黄头发及浅绿色高光、红裙和红色漆皮鞋、金色与绿色饰品。优先按部件处理并保留已合格的局部材质，避免整身一次生成导致串色。保留BaseColor、Normal及服务实际提供的PBR贴图与正确色彩空间。下载原始结果，回填模型并附贴图、任务ID、设置和费用；检查发现问题交下一阶段最小修复。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 33,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        5500,
+        2200
+      ],
+      "size": [
+        400,
+        906
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 52
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 41
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            42
+          ]
+        }
+      ],
+      "title": "⑧ Tripo · 骨骼绑定",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "9aa338d2-9011-4c4e-b6db-ce4ce3b39ef7",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取本轮修复贴图后的模型与最终贴图检查图。通过当前已授权Tripo人形绑定能力建立骨骼并导出；使用当前输入模型，不能绑定网页里另一个旧角色。保留材质与UV，检查骨架矩阵、蒙皮及静止姿态有效性，异常导出需取得有效服务端文件或在Blender修复。回填带骨骼GLB，附原始文件和骨骼清单，记录积分。\n如服务拒绝高精面数，保留母版，只制作约5.5万三角面的单网格代理用于绑骨，再由下游把骨架和权重传回母版。避免多网格代理返回跨部位相同权重；导出后必须抽查头、手、腿权重与实际抬臂姿态。若FBX异常，对照同次原始GLB，不以导出成功替代蒙皮检查。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取本轮修复贴图后的模型与最终贴图检查图。通过当前已授权Tripo人形绑定能力建立骨骼并导出；使用当前输入模型，不能绑定网页里另一个旧角色。保留材质与UV，检查骨架矩阵、蒙皮及静止姿态有效性，异常导出需取得有效服务端文件或在Blender修复。回填带骨骼GLB，附原始文件和骨骼清单，记录积分。\n如服务拒绝高精面数，保留母版，只制作约5.5万三角面的单网格代理用于绑骨，再由下游把骨架和权重传回母版。避免多网格代理返回跨部位相同权重；导出后必须抽查头、手、腿权重与实际抬臂姿态。若FBX异常，对照同次原始GLB，不以导出成功替代蒙皮检查。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 34,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        6140,
+        2200
+      ],
+      "size": [
+        400,
+        866
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 42
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            43,
+            53
+          ]
+        }
+      ],
+      "title": "⑨ Blender · 权重修正与检查",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "7181d699-b82d-4380-a7b9-d3f0aee963e8",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取当前绑定模型，先检查未加权顶点、权重归一化、影响数、头颈、手指、长发、裙摆和鞋子随动。合格就沿用原骨架与权重回填，注明未修改；没有问题不要重新绑定或强行调整权重。只有发现具体错误关联或异常变形时，才由Codex使用Blender最小修正，并验证受影响关节。保留本轮合格材质和UV。测试姿态须恢复或单独标记，不冒充后续生成动作。保存可用骨架模型和检查报告，支持骨架及单骨骼权重热图。\n保留Tripo主骨架并按本轮几何补充可编辑长发和裙摆辅助骨骼/权重，避免退化为全部头发单骨跟随；明确辅助骨骼不等于物理模拟。对抬臂、转头、迈步姿态检查穿插和变形，合格权重不重刷。\n绑骨前复查无遮挡身体的真实静止网格，几何变形须先修再绑定。禁止用整人物空间最近点加手臂/躯干坐标硬阈值当作最终身体权重；必要时以身体单体重建连续蒙皮，手指、鞋、饰品按明确部位处理。必须测试大幅抬臂、肘弯、转头，后续实际生成动作发现问题时返回本节点修复。零未加权与归一化不等于变形合格。\n【替换部件】局部换手等操作要匹配实际指骨静止位置与权重，移除不适用的旧形态键；测试原动作，避免仅REST好看。腕部接缝要在旋转和弯曲时复查。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取当前绑定模型，先检查未加权顶点、权重归一化、影响数、头颈、手指、长发、裙摆和鞋子随动。合格就沿用原骨架与权重回填，注明未修改；没有问题不要重新绑定或强行调整权重。只有发现具体错误关联或异常变形时，才由Codex使用Blender最小修正，并验证受影响关节。保留本轮合格材质和UV。测试姿态须恢复或单独标记，不冒充后续生成动作。保存可用骨架模型和检查报告，支持骨架及单骨骼权重热图。\n保留Tripo主骨架并按本轮几何补充可编辑长发和裙摆辅助骨骼/权重，避免退化为全部头发单骨跟随；明确辅助骨骼不等于物理模拟。对抬臂、转头、迈步姿态检查穿插和变形，合格权重不重刷。\n绑骨前复查无遮挡身体的真实静止网格，几何变形须先修再绑定。禁止用整人物空间最近点加手臂/躯干坐标硬阈值当作最终身体权重；必要时以身体单体重建连续蒙皮，手指、鞋、饰品按明确部位处理。必须测试大幅抬臂、肘弯、转头，后续实际生成动作发现问题时返回本节点修复。零未加权与归一化不等于变形合格。\n【替换部件】局部换手等操作要匹配实际指骨静止位置与权重，移除不适用的旧形态键；测试原动作，避免仅REST好看。腕部接缝要在旋转和弯曲时复查。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 35,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        6780,
+        2200
+      ],
+      "size": [
+        400,
+        866
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 43
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "title": "⑩ Tripo · 动作生成",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "c8a654d3-6e41-438b-b9e3-92d4f4334a73",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取本轮权重检查角色与其云端来源。在Tripo生成约5秒动作：角色双脚站地，先转头向左，明显抬右上臂，右手举到肩膀上方、脸旁，左右挥手打招呼，最后放下手。检查实际动作幅度及左右，不仅检查生成状态。若Tripo只能在原云端骨架上生成，保留原始动作与绑定映射，下个Blender节点将动作转移到本轮已修权重角色；云端动作左右错误可在Blender明确修正并记录。回填实际动作GLB，附原始文件、提示词、积分及质量说明。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取本轮权重检查角色与其云端来源。在Tripo生成约5秒动作：角色双脚站地，先转头向左，明显抬右上臂，右手举到肩膀上方、脸旁，左右挥手打招呼，最后放下手。检查实际动作幅度及左右，不仅检查生成状态。若Tripo只能在原云端骨架上生成，保留原始动作与绑定映射，下个Blender节点将动作转移到本轮已修权重角色；云端动作左右错误可在Blender明确修正并记录。回填实际动作GLB，附原始文件、提示词、积分及质量说明。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 36,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        7420,
+        2200
+      ],
+      "size": [
+        400,
+        898
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 44
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 53
+        },
+        {
+          "localized_name": "model2",
+          "name": "models.model2",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            45,
+            46
+          ]
+        }
+      ],
+      "title": "⑪ Blender · 动作成品与导出回读",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "4bad7727-f82c-40a2-8060-fab547e0766c",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "模型输入0是本轮动作源，输入1是本轮权重修正后的角色。先检查骨架、静止姿态、动作方向/幅度、时长、接地和明显穿插。源动作可直接用于合格目标时沿用，不强制重定向、镜像或修饰；仅在骨架不匹配、权重版本不同或具体动作错误时作必要转移与最小修正。保留本轮UV、材质和已验证权重，不使用历史示例角色。导出带动作GLB、FBX及可编辑blend，重新导入验证骨骼、权重、贴图和动画轨道。回填可播放GLB，报告明确哪些检查通过未改、哪些问题已修、哪些仍存在。头发裙摆物理未执行时明确说明。\n使用同一段实际动作检查肩腋拉伸、肘弯和脚鞋穿出；正侧背关键帧及无遮挡身体检查通过后才发布。遮罩等非骨骼修改器必须烘焙到交换模型，再对实际导出的GLB/FBX做同动作视觉回读；保留blend中的可撤销源数据。\n【局部修复验收】最终版本额外提供眼妆近景、左右手掌/手背与动作手部近景，以及颈/腕/耳饰/衣边/脚鞋连接检查图。保持真实缺陷记录，候选失败不发布；导入器骨骼显示辅助物件与实际角色网格区分验证。\n【实际导出验收】在最终GLB和FBX重新导入后检查眼妆、双手、动作中的手腕及隐藏头发后的衣物接缝；权重检查通过不等于视觉通过。对局部复用、衣物补片、残留色差和低模棱角如实说明，修复候选失败必须保留为失败记录，不得混入最终交付。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "模型输入0是本轮动作源，输入1是本轮权重修正后的角色。先检查骨架、静止姿态、动作方向/幅度、时长、接地和明显穿插。源动作可直接用于合格目标时沿用，不强制重定向、镜像或修饰；仅在骨架不匹配、权重版本不同或具体动作错误时作必要转移与最小修正。保留本轮UV、材质和已验证权重，不使用历史示例角色。导出带动作GLB、FBX及可编辑blend，重新导入验证骨骼、权重、贴图和动画轨道。回填可播放GLB，报告明确哪些检查通过未改、哪些问题已修、哪些仍存在。头发裙摆物理未执行时明确说明。\n使用同一段实际动作检查肩腋拉伸、肘弯和脚鞋穿出；正侧背关键帧及无遮挡身体检查通过后才发布。遮罩等非骨骼修改器必须烘焙到交换模型，再对实际导出的GLB/FBX做同动作视觉回读；保留blend中的可撤销源数据。\n【局部修复验收】最终版本额外提供眼妆近景、左右手掌/手背与动作手部近景，以及颈/腕/耳饰/衣边/脚鞋连接检查图。保持真实缺陷记录，候选失败不发布；导入器骨骼显示辅助物件与实际角色网格区分验证。\n【实际导出验收】在最终GLB和FBX重新导入后检查眼妆、双手、动作中的手腕及隐藏头发后的衣物接缝；权重检查通过不等于视觉通过。对局部复用、衣物补片、残留色差和低模棱角如实说明，修复候选失败必须保留为失败记录，不得混入最终交付。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 37,
+      "type": "ComfyTV.AgentTextStage",
+      "pos": [
+        8700,
+        2200
+      ],
+      "size": [
+        400,
+        706
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 55
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 56
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 46
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model2",
+          "name": "models.model2",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": 54
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "video1",
+          "name": "videos.video1",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_TEXT",
+          "links": null
+        }
+      ],
+      "title": "⑬ 全流程交付 · 不导入UE",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentTextStage",
+        "comfytv_stage_uid": "25c68702-b9f3-47bc-97a9-d47d320bf2e1",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "汇总本轮实际来源、逐部件三视图及建模、细节/拼接、UV贴图、骨骼权重、实际动作和导出回读的验收证据。提供完整角色正面、侧面/四分之三、背面以及脸/发尖/衣边/脚鞋近景，原画对照与修复前后对照分开报告。列出通过项、实际修改、仍有差距、推断及未执行项目；不把完成任务当全部外观完美。打包当前角色最终blend/GLB/FBX、独立部件、有效贴图、动作视频、报告与可复用工作流。不同角色使用独立目录和新的任务关联，不能覆盖旧角色。记录实际积分，不导入UE。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "汇总本轮实际来源、逐部件三视图及建模、细节/拼接、UV贴图、骨骼权重、实际动作和导出回读的验收证据。提供完整角色正面、侧面/四分之三、背面以及脸/发尖/衣边/脚鞋近景，原画对照与修复前后对照分开报告。列出通过项、实际修改、仍有差距、推断及未执行项目；不把完成任务当全部外观完美。打包当前角色最终blend/GLB/FBX、独立部件、有效贴图、动作视频、报告与可复用工作流。不同角色使用独立目录和新的任务关联，不能覆盖旧角色。记录实际积分，不导入UE。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 38,
+      "type": "ComfyTV.AgentVideoStage",
+      "pos": [
+        8060,
+        2200
+      ],
+      "size": [
+        400,
+        778
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 45
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_VIDEO",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "title": "⑫ Blender · 动作视频预览",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentVideoStage",
+        "comfytv_stage_uid": "f43e97b3-ccb4-49b0-95a3-4ec0fb93f09f",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取最终动画GLB及blend，在Blender配置相机灯光，完整展示真实骨骼动作，渲染约五秒MP4。回填视频，附渲染blend和关键帧截图；检查时长及完整身体构图。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取最终动画GLB及blend，在Blender配置相机灯光，完整展示真实骨骼动作，渲染约五秒MP4。回填视频，附渲染blend和关键帧截图；检查时长及完整身体构图。",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 39,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        3580,
+        2200
+      ],
+      "size": [
+        460,
+        946
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 36
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model2",
+          "name": "models.model2",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model3",
+          "name": "models.model3",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model4",
+          "name": "models.model4",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model5",
+          "name": "models.model5",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            37,
+            38,
+            50
+          ]
+        }
+      ],
+      "title": "⑤ Tripo · Smart UV展开",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "de18dfd3-c58b-4231-80c3-e4e9ff9a4df0",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "在Tripo使用Smart UV处理本轮拼接模型。先检查当前服务单网格及三角面限制。保留高精分部件母版，仅使用处理副本；必要时按部件单独展开或在服务允许范围保留更多面数，不无条件全身减至1万面。任何重拓扑前后必须同灯光检查脸型、发束、鞋带、裙摆和饰品；出现可见退化则调整，不以任务成功代替验收。回填有效带UV模型与原始下载、UV布局、参数及费用，保留材质恢复所需映射。不得用Blender展开冒充Tripo UV。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "在Tripo使用Smart UV处理本轮拼接模型。先检查当前服务单网格及三角面限制。保留高精分部件母版，仅使用处理副本；必要时按部件单独展开或在服务允许范围保留更多面数，不无条件全身减至1万面。任何重拓扑前后必须同灯光检查脸型、发束、鞋带、裙摆和饰品；出现可见退化则调整，不以任务成功代替验收。回填有效带UV模型与原始下载、UV布局、参数及费用，保留材质恢复所需映射。不得用Blender展开冒充Tripo UV。",
+        "comfytv_stage": ""
+      },
+      "color": "#233"
+    },
+    {
+      "id": 40,
+      "type": "ComfyTV.AgentImageStage",
+      "pos": [
+        3580,
+        3400
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 37
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            49,
+            55
+          ]
+        }
+      ],
+      "title": "⑤检查 · Tripo UV结果预览",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentImageStage",
+        "comfytv_stage_uid": "37e2e848-e3bd-4bb6-a0c8-4d6d4501e984",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取Tripo Smart UV输出及附件，用真实UV布局或本地Blender棋盘格渲染检查UV覆盖、明显拉伸和对应关系。结果合格就沿用，不因利用率还能提高而强制重新展开；只在发现影响后续贴图的具体问题时返回Tripo修复。保存实际检查PNG与问题/通过记录，本节点不自行替代Tripo重新展开UV。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取Tripo Smart UV输出及附件，用真实UV布局或本地Blender棋盘格渲染检查UV覆盖、明显拉伸和对应关系。结果合格就沿用，不因利用率还能提高而强制重新展开；只在发现影响后续贴图的具体问题时返回Tripo修复。保存实际检查PNG与问题/通过记录，本节点不自行替代Tripo重新展开UV。",
+        "comfytv_stage": ""
+      },
+      "color": "#233"
+    },
+    {
+      "id": 41,
+      "type": "ComfyTV.AgentModelStage",
+      "pos": [
+        4860,
+        2200
+      ],
+      "size": [
+        460,
+        986
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 51
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 39
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 50
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model2",
+          "name": "models.model2",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model3",
+          "name": "models.model3",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model4",
+          "name": "models.model4",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "model5",
+          "name": "models.model5",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_MODEL",
+          "links": [
+            40,
+            41
+          ]
+        }
+      ],
+      "title": "⑦ Blender · 材质审查与按需修复",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentModelStage",
+        "comfytv_stage_uid": "ba982a1f-6c26-4ca7-83fd-3b77c511b248",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "模型输入0是Tripo贴图结果，输入1是本轮UV基准模型；主图是外观参考。先检查模型结构、UV对应、缺图、黑块、接缝、肤色和材质，记录实际问题与证据。若结果合格，直接沿用输入模型与贴图回填，并注明检查通过、未修改；不要为了经过此节点而重生成、改色、重烘焙或调用图像模型。只有发现影响交付的具体问题时，才由外部Codex选择适当工具作最小修复；需要图像编辑时调用当时可用的图像工具，不固定绑定或强制接入某个模型，也不声称使用了无法核实的模型。图像修复必须保留UV布局及纹理对应，修复后在实际模型上复查。必要时用Blender转移/烘焙到本轮UV基准；基础色用sRGB，数据图用Non-Color。只交付实际使用的通道，不伪造PBR贴图。保留原始结果，附检查、是否修改、修改原因及复查记录，回填可用GLB和实际附件。\n按当前角色的参考色和设计高光核对，保留通过的分材质与法线。服务失败如实记录；若按当前用户授权使用本地修复，明确标注本地来源，不冒充Tripo成功。\n【眼妆材质】单独渲染眼睛、睫毛、彩妆，颜色修改采用局部平滑过渡，不能产生阈值斑块或改变合格肤色。材质节点效果必须烘焙或使用导出支持的节点，并在实际GLB/FBX上检查。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "模型输入0是Tripo贴图结果，输入1是本轮UV基准模型；主图是外观参考。先检查模型结构、UV对应、缺图、黑块、接缝、肤色和材质，记录实际问题与证据。若结果合格，直接沿用输入模型与贴图回填，并注明检查通过、未修改；不要为了经过此节点而重生成、改色、重烘焙或调用图像模型。只有发现影响交付的具体问题时，才由外部Codex选择适当工具作最小修复；需要图像编辑时调用当时可用的图像工具，不固定绑定或强制接入某个模型，也不声称使用了无法核实的模型。图像修复必须保留UV布局及纹理对应，修复后在实际模型上复查。必要时用Blender转移/烘焙到本轮UV基准；基础色用sRGB，数据图用Non-Color。只交付实际使用的通道，不伪造PBR贴图。保留原始结果，附检查、是否修改、修改原因及复查记录，回填可用GLB和实际附件。\n按当前角色的参考色和设计高光核对，保留通过的分材质与法线。服务失败如实记录；若按当前用户授权使用本地修复，明确标注本地来源，不冒充Tripo成功。\n【眼妆材质】单独渲染眼睛、睫毛、彩妆，颜色修改采用局部平滑过渡，不能产生阈值斑块或改变合格肤色。材质节点效果必须烘焙或使用导出支持的节点，并在实际GLB/FBX上检查。",
+        "comfytv_stage": ""
+      },
+      "color": "#233"
+    },
+    {
+      "id": 42,
+      "type": "ComfyTV.AgentImageStage",
+      "pos": [
+        4860,
+        3400
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": 40
+        },
+        {
+          "localized_name": "model1",
+          "name": "models.model1",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            52,
+            56
+          ]
+        }
+      ],
+      "title": "⑦预览 · UV与贴图验收",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentImageStage",
+        "comfytv_stage_uid": "dc026477-e3ca-4bc9-a8b5-5eec559acef8",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "读取材质审查后的模型，以实际导出文件检查图片、颜色空间、UV对应、黑块、接缝和各方向覆盖。用Blender渲染检查图并回填；合格即通过，不强制重修。发现具体影响交付的问题才返回上游做最小修复，并复查。记录未修改或实际修改事项；不得把修复前检查结论冒充修复后结果。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "读取材质审查后的模型，以实际导出文件检查图片、颜色空间、UV对应、黑块、接缝和各方向覆盖。用Blender渲染检查图并回填；合格即通过，不强制重修。发现具体影响交付的问题才返回上游做最小修复，并复查。记录未修改或实际修改事项；不得把修复前检查结论冒充修复后结果。",
+        "comfytv_stage": ""
+      },
+      "color": "#233"
+    },
+    {
+      "id": 43,
+      "type": "ComfyTV.ImageEditStage",
+      "pos": [
+        540,
+        -920
+      ],
+      "size": [
+        440,
+        800
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 57
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "force_run_token",
+          "name": "force_run_token",
+          "type": "INT",
+          "widget": {
+            "name": "force_run_token"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "工作流",
+          "name": "workflow",
+          "type": "COMBO",
+          "widget": {
+            "name": "workflow"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_params",
+          "name": "custom_params",
+          "type": "STRING",
+          "widget": {
+            "name": "custom_params"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "图像",
+          "name": "image",
+          "type": "COMFYTV_IMAGE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "title": "② 头发 · 左侧角度中间图 · 本地Qwen21",
+      "properties": {
+        "Node name for S&R": "ComfyTV.ImageEditStage",
+        "comfytv_stage_uid": "626f05a8-e7d1-4ff4-8f1c-f0144df0523e",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        46784435,
+        "default",
+        0,
+        "角色部位拆分 · 原Qwen21单图分支",
+        "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "{}",
+        ""
+      ],
+      "widgets_values_named": {
+        "force_run_token": 46784435,
+        "project_id": "default",
+        "parent_output_id": 0,
+        "workflow": "角色部位拆分 · 原Qwen21单图分支",
+        "main_prompt": "依据已连接参考图，绘制同一主角色的头发独立组件。完整独立假发，内侧中空，移除头皮、脸、耳朵、皮肤、饰品和身体，保留当前参考的发束、发尖、颜色及高光。 输出严格左侧正交视图，原来面朝方向朝画面左方。保持同一部件、同一比例、相同姿势与原画风；参考若是其他角度仅旋转该组件，不重新设计。纯白背景，单件居中完整，保留全部边缘且留白，一张只有一个角度，不拼图、不加文字水印或支架。",
+        "custom_params": "{}",
+        "comfytv_stage": ""
+      },
+      "color": "#223"
+    },
+    {
+      "id": 44,
+      "type": "ComfyTV.AgentTextStage",
+      "pos": [
+        1620,
+        0
+      ],
+      "size": [
+        400,
+        678
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 85
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 86
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 87
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 88
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_TEXT",
+          "links": [
+            62
+          ]
+        }
+      ],
+      "title": "检查 · 头发三视图一致性",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentTextStage",
+        "comfytv_stage_uid": "05efdfe3-e68a-4ebf-be31-b7a08b172395",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "实际查看本轮头发正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。核对刘海方向、发旋、层次、发束数量与长短、外轮廓和高光色块；独立假发内部不带头皮、脸、皮肤或首饰。建模检查发尖是否粘连、发束是否融成厚块、根部内腔能否容纳头部。保留设计中的尖锐边缘，不能全局磨圆抹平。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "实际查看本轮头发正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。核对刘海方向、发旋、层次、发束数量与长短、外轮廓和高光色块；独立假发内部不带头皮、脸、皮肤或首饰。建模检查发尖是否粘连、发束是否融成厚块、根部内腔能否容纳头部。保留设计中的尖锐边缘，不能全局磨圆抹平。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        "comfytv_stage": ""
+      }
+    },
+    {
+      "id": 45,
+      "type": "ComfyTV.AgentTextStage",
+      "pos": [
+        1620,
+        1400
+      ],
+      "size": [
+        400,
+        678
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 89
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 90
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 91
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 92
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_TEXT",
+          "links": [
+            67
+          ]
+        }
+      ],
+      "title": "检查 · 素体三视图一致性",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentTextStage",
+        "comfytv_stage_uid": "a1de82c0-97cf-4c74-a01c-cfa0e5a0e6e5",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "实际查看本轮素体正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。保留参考肤色和体型比例，光滑人偶表面不画私密解剖细节；无头无衣无鞋，四肢与手脚完整。检查肩腋、肘、手指、腰胯、膝踝和脚趾；真实REST网格必须自然，不能用后续衣服遮住坏几何。关节面流与体积优先，不能以归一化权重代替变形检查。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "实际查看本轮素体正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。保留参考肤色和体型比例，光滑人偶表面不画私密解剖细节；无头无衣无鞋，四肢与手脚完整。检查肩腋、肘、手指、腰胯、膝踝和脚趾；真实REST网格必须自然，不能用后续衣服遮住坏几何。关节面流与体积优先，不能以归一化权重代替变形检查。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        "comfytv_stage": ""
+      }
+    },
+    {
+      "id": 46,
+      "type": "ComfyTV.AgentTextStage",
+      "pos": [
+        1620,
+        2800
+      ],
+      "size": [
+        400,
+        678
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 93
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 94
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 95
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 96
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_TEXT",
+          "links": [
+            72
+          ]
+        }
+      ],
+      "title": "检查 · 裙子三视图一致性",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentTextStage",
+        "comfytv_stage_uid": "b377036d-22a9-4ff4-99a3-9bea8d9ee684",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "实际查看本轮裙子正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。此分支代表参考图中的实际服装，先按新图确认是否为裙装。核对领口、肩带/袖口、开口、厚度、腰线、裙摆、褶皱、内外表面及缝边。应为独立中空衣物，无人体、人台或其他部件残留；薄边不破洞，不把衣服生成成实心身体。多件衣物需独立分支，禁止擅自合成一件裙子。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "实际查看本轮裙子正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。此分支代表参考图中的实际服装，先按新图确认是否为裙装。核对领口、肩带/袖口、开口、厚度、腰线、裙摆、褶皱、内外表面及缝边。应为独立中空衣物，无人体、人台或其他部件残留；薄边不破洞，不把衣服生成成实心身体。多件衣物需独立分支，禁止擅自合成一件裙子。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        "comfytv_stage": ""
+      }
+    },
+    {
+      "id": 47,
+      "type": "ComfyTV.AgentTextStage",
+      "pos": [
+        1620,
+        4200
+      ],
+      "size": [
+        400,
+        678
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 97
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 98
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 99
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 100
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_TEXT",
+          "links": [
+            77
+          ]
+        }
+      ],
+      "title": "检查 · 头部三视图一致性",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentTextStage",
+        "comfytv_stage_uid": "4e1087ae-8b39-40c4-a801-b10eb7e1b8f1",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "实际查看本轮头部正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。保持同一角色五官身份、头脸比例、眼形眼色、耳形、嘴角及颈接口；无发独立头部，皮肤与素体一致。检查眼睑唇缘鼻翼耳廓的轮廓和表面连续性、颈缝及法线，不因磨圆把表情和脸型改掉。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "实际查看本轮头部正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。保持同一角色五官身份、头脸比例、眼形眼色、耳形、嘴角及颈接口；无发独立头部，皮肤与素体一致。检查眼睑唇缘鼻翼耳廓的轮廓和表面连续性、颈缝及法线，不因磨圆把表情和脸型改掉。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        "comfytv_stage": ""
+      }
+    },
+    {
+      "id": 48,
+      "type": "ComfyTV.AgentTextStage",
+      "pos": [
+        1620,
+        5600
+      ],
+      "size": [
+        400,
+        678
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text0",
+          "name": "texts.text0",
+          "shape": 7,
+          "type": "COMFYTV_TEXT",
+          "link": null
+        },
+        {
+          "localized_name": "image0",
+          "name": "images.image0",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 101
+        },
+        {
+          "localized_name": "image1",
+          "name": "images.image1",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 102
+        },
+        {
+          "localized_name": "image2",
+          "name": "images.image2",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 103
+        },
+        {
+          "localized_name": "model0",
+          "name": "models.model0",
+          "shape": 7,
+          "type": "COMFYTV_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "video0",
+          "name": "videos.video0",
+          "shape": 7,
+          "type": "COMFYTV_VIDEO",
+          "link": null
+        },
+        {
+          "localized_name": "project_id",
+          "name": "project_id",
+          "type": "STRING",
+          "widget": {
+            "name": "project_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "parent_output_id",
+          "name": "parent_output_id",
+          "type": "INT",
+          "widget": {
+            "name": "parent_output_id"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "image3",
+          "name": "images.image3",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": 104
+        },
+        {
+          "localized_name": "image4",
+          "name": "images.image4",
+          "shape": 7,
+          "type": "COMFYTV_IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result",
+          "name": "result",
+          "type": "COMFYTV_TEXT",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "title": "检查 · 鞋子三视图一致性",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentTextStage",
+        "comfytv_stage_uid": "d2f30f38-5853-4416-9eec-1490871828af",
+        "comfytv_media": {
+          "image": [],
+          "video": [],
+          "audio": []
+        }
+      },
+      "widgets_values": [
+        "default",
+        0,
+        "实际查看本轮鞋子正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。按参考确认鞋款、左右差异及露肤结构；核对鞋头、鞋口、鞋底、鞋跟、绑带与扣件的厚度、连接及负空间。仅对确认为对称的鞋款，先生成同一只鞋再镜像配对；有非对称设计时分别生成左右鞋。不能生成额外鞋、跨鞋横条或夹带脚腿。拼接时脚趾与脚跟在封闭鞋面内，开放鞋口正常露肤，鞋带不能截穿皮肤。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        ""
+      ],
+      "widgets_values_named": {
+        "project_id": "default",
+        "parent_output_id": 0,
+        "main_prompt": "实际查看本轮鞋子正面、背面、左侧独立图及当前主图，核对角度与同一设计、完整性、比例、颜色、轮廓及边缘细节。按参考确认鞋款、左右差异及露肤结构；核对鞋头、鞋口、鞋底、鞋跟、绑带与扣件的厚度、连接及负空间。仅对确认为对称的鞋款，先生成同一只鞋再镜像配对；有非对称设计时分别生成左右鞋。不能生成额外鞋、跨鞋横条或夹带脚腿。拼接时脚趾与脚跟在封闭鞋面内，开放鞋口正常露肤，鞋带不能截穿皮肤。\n记录每张输入路径/版本、具体通过与缺陷；有问题返回对应本地Qwen节点，只重做有问题的角度并重新对照全部视图。输出真实检查图与结论，未通过不提交下游付费建模。",
+        "comfytv_stage": ""
+      }
+    },
+    {
+      "id": 49,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        -500,
+        50
+      ],
+      "size": [
+        440,
+        550
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "头发区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "【头发区域：拆图、单件生成与细节验收】\n核对刘海方向、发旋、层次、发束数量与长短、外轮廓和高光色块；独立假发内部不带头皮、脸、皮肤或首饰。建模检查发尖是否粘连、发束是否融成厚块、根部内腔能否容纳头部。保留设计中的尖锐边缘，不能全局磨圆抹平。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "【头发区域：拆图、单件生成与细节验收】\n核对刘海方向、发旋、层次、发束数量与长短、外轮廓和高光色块；独立假发内部不带头皮、脸、皮肤或首饰。建模检查发尖是否粘连、发束是否融成厚块、根部内腔能否容纳头部。保留设计中的尖锐边缘，不能全局磨圆抹平。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 50,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        -500,
+        1450
+      ],
+      "size": [
+        440,
+        550
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "素体区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "【素体区域：拆图、单件生成与细节验收】\n保留参考肤色和体型比例，光滑人偶表面不画私密解剖细节；无头无衣无鞋，四肢与手脚完整。检查肩腋、肘、手指、腰胯、膝踝和脚趾；真实REST网格必须自然，不能用后续衣服遮住坏几何。关节面流与体积优先，不能以归一化权重代替变形检查。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。\n【手部专项】双手分别查看掌面/背面和侧面，核对五指数量、长短、分离、指根、指尖和指甲；不能只看全身图。检查REST与实际挥手/弯指，分清几何、贴图和蒙皮问题。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "【素体区域：拆图、单件生成与细节验收】\n保留参考肤色和体型比例，光滑人偶表面不画私密解剖细节；无头无衣无鞋，四肢与手脚完整。检查肩腋、肘、手指、腰胯、膝踝和脚趾；真实REST网格必须自然，不能用后续衣服遮住坏几何。关节面流与体积优先，不能以归一化权重代替变形检查。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。\n【手部专项】双手分别查看掌面/背面和侧面，核对五指数量、长短、分离、指根、指尖和指甲；不能只看全身图。检查REST与实际挥手/弯指，分清几何、贴图和蒙皮问题。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 51,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        -500,
+        2850
+      ],
+      "size": [
+        440,
+        550
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "裙子区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "【裙子区域：拆图、单件生成与细节验收】\n此分支代表参考图中的实际服装，先按新图确认是否为裙装。核对领口、肩带/袖口、开口、厚度、腰线、裙摆、褶皱、内外表面及缝边。应为独立中空衣物，无人体、人台或其他部件残留；薄边不破洞，不把衣服生成成实心身体。多件衣物需独立分支，禁止擅自合成一件裙子。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "【裙子区域：拆图、单件生成与细节验收】\n此分支代表参考图中的实际服装，先按新图确认是否为裙装。核对领口、肩带/袖口、开口、厚度、腰线、裙摆、褶皱、内外表面及缝边。应为独立中空衣物，无人体、人台或其他部件残留；薄边不破洞，不把衣服生成成实心身体。多件衣物需独立分支，禁止擅自合成一件裙子。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 52,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        -500,
+        4250
+      ],
+      "size": [
+        440,
+        550
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "头部区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "【头部区域：拆图、单件生成与细节验收】\n保持同一角色五官身份、头脸比例、眼形眼色、耳形、嘴角及颈接口；无发独立头部，皮肤与素体一致。检查眼睑唇缘鼻翼耳廓的轮廓和表面连续性、颈缝及法线，不因磨圆把表情和脸型改掉。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。\n【眼部专项】眼睛、睫毛和彩妆分别检查，不用表情或眼神描述代替：比较虹膜/瞳孔与高光、眼线、上下睫毛轮廓、眼影边缘和分辨率，在同灯光正面及侧面近景中对照参考。新贴图像素更高不代表设计更好。合格脸型和表情保持不动，眼部仅按实际问题修复。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "【头部区域：拆图、单件生成与细节验收】\n保持同一角色五官身份、头脸比例、眼形眼色、耳形、嘴角及颈接口；无发独立头部，皮肤与素体一致。检查眼睑唇缘鼻翼耳廓的轮廓和表面连续性、颈缝及法线，不因磨圆把表情和脸型改掉。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。\n【眼部专项】眼睛、睫毛和彩妆分别检查，不用表情或眼神描述代替：比较虹膜/瞳孔与高光、眼线、上下睫毛轮廓、眼影边缘和分辨率，在同灯光正面及侧面近景中对照参考。新贴图像素更高不代表设计更好。合格脸型和表情保持不动，眼部仅按实际问题修复。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 53,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        -500,
+        5650
+      ],
+      "size": [
+        440,
+        550
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "鞋子区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "【鞋子区域：拆图、单件生成与细节验收】\n按参考确认鞋款、左右差异及露肤结构；核对鞋头、鞋口、鞋底、鞋跟、绑带与扣件的厚度、连接及负空间。仅对确认为对称的鞋款，先生成同一只鞋再镜像配对；有非对称设计时分别生成左右鞋。不能生成额外鞋、跨鞋横条或夹带脚腿。拼接时脚趾与脚跟在封闭鞋面内，开放鞋口正常露肤，鞋带不能截穿皮肤。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "【鞋子区域：拆图、单件生成与细节验收】\n按参考确认鞋款、左右差异及露肤结构；核对鞋头、鞋口、鞋底、鞋跟、绑带与扣件的厚度、连接及负空间。仅对确认为对称的鞋款，先生成同一只鞋再镜像配对；有非对称设计时分别生成左右鞋。不能生成额外鞋、跨鞋横条或夹带脚腿。拼接时脚趾与脚跟在封闭鞋面内，开放鞋口正常露肤，鞋带不能截穿皮肤。\n逐件近景检查棱边、倒角、厚度、薄片、孔洞、破面、自交和法线；先保留原设计的硬边/软面关系。只有出现影响轮廓、反光或动画的实际缺陷才局部修整或按尺度倒角，禁止全局平滑、统一倒角或降面磨掉发尖、鞋带和服装边缘。不要用增加面数代替细节检查。\n多视图须属于同一部件、同一比例、同一姿势，先审再生成；记录当前参考设计，不能套用上个角色。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 54,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        3580,
+        1330
+      ],
+      "size": [
+        1050,
+        640
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "UV与材质区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "Tripo UV与材质在副本执行，保留高精独立部件母版及源映射；限制按当前服务核对，不无条件全身降为1万面。逐件看棋盘格及接缝，重点脸、发尖、衣边、手指、鞋带和配饰；检查UV重叠是否有意、覆盖与拉伸。贴图保持当前原设的肤色、发色、高光和服装材质；不要把示例金发/红裙套到新角色。基础色sRGB、数据图Non-Color，保留实际有效法线与PBR通道；局部错误局部修复，禁止全身统一改色或粗糙度。实际导出回读检查缺图、黑块、接缝与法线。合格直接沿用，不额外调用图像服务。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "Tripo UV与材质在副本执行，保留高精独立部件母版及源映射；限制按当前服务核对，不无条件全身降为1万面。逐件看棋盘格及接缝，重点脸、发尖、衣边、手指、鞋带和配饰；检查UV重叠是否有意、覆盖与拉伸。贴图保持当前原设的肤色、发色、高光和服装材质；不要把示例金发/红裙套到新角色。基础色sRGB、数据图Non-Color，保留实际有效法线与PBR通道；局部错误局部修复，禁止全身统一改色或粗糙度。实际导出回读检查缺图、黑块、接缝与法线。合格直接沿用，不额外调用图像服务。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    },
+    {
+      "id": 55,
+      "type": "ComfyTV.AgentContext",
+      "pos": [
+        5500,
+        1330
+      ],
+      "size": [
+        1050,
+        640
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "main_prompt",
+          "name": "main_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "main_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "骨骼与动作区域提示词",
+      "properties": {
+        "Node name for S&R": "ComfyTV.AgentContext"
+      },
+      "widgets_values": [
+        "使用当前已验收的真实REST几何和材质。先隐藏服装与头发检查身体，再审骨骼、权重和动作。空间最近点容易跨部件串权重，代理与权重传递必须按身体、头发、服装、鞋和饰品隔离；需要修复时使用连续蒙皮并保护手指等细节，不用坐标硬阈值切出手臂/躯干权重。保持UV、有效贴图及合格权重。\n测试转头、抬臂、弯肘、迈步，并在实际生成动作中复查肩腋塌陷/拉膜、颈肩接缝、发束随动、裙摆穿插、脚趾穿鞋、脚跟滑出、脚底接地及手指。检查至少起止、中间与最大变形关键帧和完整播放；失败回对应上游，不能降低动作幅度掩盖错误。零未加权、归一化及存在动画轨道不等于外观通过。辅助骨不等于物理模拟。\n使用最终GLB/FBX重新导入检查同一动作；正确烘焙服装遮罩等非骨骼修改器，blend保留可撤销源数据。回填可播放模型、真实检查图和未解决事项，合格不改。",
+        true
+      ],
+      "widgets_values_named": {
+        "main_prompt": "使用当前已验收的真实REST几何和材质。先隐藏服装与头发检查身体，再审骨骼、权重和动作。空间最近点容易跨部件串权重，代理与权重传递必须按身体、头发、服装、鞋和饰品隔离；需要修复时使用连续蒙皮并保护手指等细节，不用坐标硬阈值切出手臂/躯干权重。保持UV、有效贴图及合格权重。\n测试转头、抬臂、弯肘、迈步，并在实际生成动作中复查肩腋塌陷/拉膜、颈肩接缝、发束随动、裙摆穿插、脚趾穿鞋、脚跟滑出、脚底接地及手指。检查至少起止、中间与最大变形关键帧和完整播放；失败回对应上游，不能降低动作幅度掩盖错误。零未加权、归一化及存在动画轨道不等于外观通过。辅助骨不等于物理模拟。\n使用最终GLB/FBX重新导入检查同一动作；正确烘焙服装遮罩等非骨骼修改器，blend保留可撤销源数据。回填可播放模型、真实检查图和未解决事项，合格不改。",
+        "enabled": true
+      },
+      "color": "#344b45",
+      "bgcolor": "#24332f"
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      4,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      5,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      5,
+      43,
+      0,
+      6,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      7,
+      3,
+      0,
+      9,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      9,
+      9,
+      0,
+      10,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      11,
+      9,
+      0,
+      11,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      13,
+      3,
+      0,
+      14,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      15,
+      3,
+      0,
+      15,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      17,
+      14,
+      0,
+      16,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      19,
+      3,
+      0,
+      19,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      21,
+      19,
+      0,
+      20,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      23,
+      19,
+      0,
+      21,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      83,
+      26,
+      0,
+      24,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      84,
+      26,
+      0,
+      25,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      29,
+      3,
+      0,
+      26,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      42,
+      33,
+      0,
+      34,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      43,
+      34,
+      0,
+      35,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      45,
+      36,
+      0,
+      38,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      36,
+      29,
+      0,
+      39,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      37,
+      39,
+      0,
+      40,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      40,
+      41,
+      0,
+      42,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      57,
+      3,
+      0,
+      43,
+      0,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      62,
+      44,
+      0,
+      8,
+      0,
+      "COMFYTV_TEXT"
+    ],
+    [
+      2,
+      4,
+      0,
+      8,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      4,
+      5,
+      0,
+      8,
+      4,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      6,
+      6,
+      0,
+      8,
+      10,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      67,
+      45,
+      0,
+      13,
+      0,
+      "COMFYTV_TEXT"
+    ],
+    [
+      8,
+      9,
+      0,
+      13,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      10,
+      10,
+      0,
+      13,
+      4,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      12,
+      11,
+      0,
+      13,
+      10,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      72,
+      46,
+      0,
+      18,
+      0,
+      "COMFYTV_TEXT"
+    ],
+    [
+      14,
+      14,
+      0,
+      18,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      16,
+      15,
+      0,
+      18,
+      4,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      18,
+      16,
+      0,
+      18,
+      10,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      77,
+      47,
+      0,
+      23,
+      0,
+      "COMFYTV_TEXT"
+    ],
+    [
+      20,
+      19,
+      0,
+      23,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      22,
+      20,
+      0,
+      23,
+      4,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      24,
+      21,
+      0,
+      23,
+      10,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      82,
+      48,
+      0,
+      28,
+      0,
+      "COMFYTV_TEXT"
+    ],
+    [
+      26,
+      24,
+      0,
+      28,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      28,
+      25,
+      0,
+      28,
+      4,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      30,
+      26,
+      0,
+      28,
+      10,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      47,
+      3,
+      0,
+      29,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      31,
+      8,
+      0,
+      29,
+      4,
+      "COMFYTV_MODEL"
+    ],
+    [
+      32,
+      13,
+      0,
+      29,
+      5,
+      "COMFYTV_MODEL"
+    ],
+    [
+      33,
+      18,
+      0,
+      29,
+      10,
+      "COMFYTV_MODEL"
+    ],
+    [
+      34,
+      23,
+      0,
+      29,
+      11,
+      "COMFYTV_MODEL"
+    ],
+    [
+      35,
+      28,
+      0,
+      29,
+      12,
+      "COMFYTV_MODEL"
+    ],
+    [
+      48,
+      3,
+      0,
+      32,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      49,
+      40,
+      0,
+      32,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      38,
+      39,
+      0,
+      32,
+      4,
+      "COMFYTV_MODEL"
+    ],
+    [
+      52,
+      42,
+      0,
+      33,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      41,
+      41,
+      0,
+      33,
+      4,
+      "COMFYTV_MODEL"
+    ],
+    [
+      44,
+      35,
+      0,
+      36,
+      2,
+      "COMFYTV_MODEL"
+    ],
+    [
+      53,
+      34,
+      0,
+      36,
+      3,
+      "COMFYTV_MODEL"
+    ],
+    [
+      55,
+      40,
+      0,
+      37,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      56,
+      42,
+      0,
+      37,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      46,
+      36,
+      0,
+      37,
+      5,
+      "COMFYTV_MODEL"
+    ],
+    [
+      54,
+      38,
+      0,
+      37,
+      8,
+      "COMFYTV_VIDEO"
+    ],
+    [
+      51,
+      3,
+      0,
+      41,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      39,
+      32,
+      0,
+      41,
+      4,
+      "COMFYTV_MODEL"
+    ],
+    [
+      50,
+      39,
+      0,
+      41,
+      5,
+      "COMFYTV_MODEL"
+    ],
+    [
+      85,
+      4,
+      0,
+      44,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      86,
+      5,
+      0,
+      44,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      87,
+      6,
+      0,
+      44,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      88,
+      3,
+      0,
+      44,
+      9,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      89,
+      9,
+      0,
+      45,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      90,
+      10,
+      0,
+      45,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      91,
+      11,
+      0,
+      45,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      92,
+      3,
+      0,
+      45,
+      9,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      93,
+      14,
+      0,
+      46,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      94,
+      15,
+      0,
+      46,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      95,
+      16,
+      0,
+      46,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      96,
+      3,
+      0,
+      46,
+      9,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      97,
+      19,
+      0,
+      47,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      98,
+      20,
+      0,
+      47,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      99,
+      21,
+      0,
+      47,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      100,
+      3,
+      0,
+      47,
+      9,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      101,
+      24,
+      0,
+      48,
+      1,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      102,
+      25,
+      0,
+      48,
+      2,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      103,
+      26,
+      0,
+      48,
+      3,
+      "COMFYTV_IMAGE"
+    ],
+    [
+      104,
+      3,
+      0,
+      48,
+      9,
+      "COMFYTV_IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 100,
+      "title": "全流程 · 区域指令自动注入 Agent 任务",
+      "bounding": [
+        -1320,
+        -1550,
+        11400,
+        8800
+      ],
+      "color": "#293a4b",
+      "flags": {}
+    },
+    {
+      "id": 101,
+      "title": "主形象图 · 后续换图入口",
+      "bounding": [
+        -1250,
+        920,
+        600,
+        1000
+      ],
+      "color": "#3f5a78",
+      "flags": {}
+    },
+    {
+      "id": 110,
+      "title": "头发区域 · 本地三视图 → 审查 → 智能网格",
+      "bounding": [
+        -560,
+        -1040,
+        3240,
+        2160
+      ],
+      "color": "#60533d",
+      "flags": {}
+    },
+    {
+      "id": 111,
+      "title": "素体区域 · 本地三视图 → 审查 → 智能网格",
+      "bounding": [
+        -560,
+        1320,
+        3240,
+        1200
+      ],
+      "color": "#60533d",
+      "flags": {}
+    },
+    {
+      "id": 112,
+      "title": "裙子区域 · 本地三视图 → 审查 → 智能网格",
+      "bounding": [
+        -560,
+        2720,
+        3240,
+        1200
+      ],
+      "color": "#60533d",
+      "flags": {}
+    },
+    {
+      "id": 113,
+      "title": "头部区域 · 本地三视图 → 审查 → 智能网格",
+      "bounding": [
+        -560,
+        4120,
+        3240,
+        1200
+      ],
+      "color": "#60533d",
+      "flags": {}
+    },
+    {
+      "id": 114,
+      "title": "鞋子区域 · 本地三视图 → 审查 → 智能网格",
+      "bounding": [
+        -560,
+        5520,
+        3240,
+        1200
+      ],
+      "color": "#60533d",
+      "flags": {}
+    },
+    {
+      "id": 120,
+      "title": "拼接 · 保留细节与独立部件",
+      "bounding": [
+        2850,
+        2020,
+        600,
+        1400
+      ],
+      "color": "#3e6660",
+      "flags": {}
+    },
+    {
+      "id": 121,
+      "title": "UV与材质区域 · 保留母版，先审后改",
+      "bounding": [
+        3500,
+        1220,
+        1880,
+        3500
+      ],
+      "color": "#3e6660",
+      "flags": {}
+    },
+    {
+      "id": 122,
+      "title": "骨骼与动作区域 · 权重、接地与可视化",
+      "bounding": [
+        5430,
+        1220,
+        2470,
+        2700
+      ],
+      "color": "#625077",
+      "flags": {}
+    },
+    {
+      "id": 123,
+      "title": "演示与交付 · 最终实物验收",
+      "bounding": [
+        8000,
+        2020,
+        1260,
+        1500
+      ],
+      "color": "#3f5a78",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5103969754253309,
+      "offset": [
+        -6366.074074074074,
+        -1943.6666666666665
+      ]
+    }
+  },
+  "version": 0.4
+}

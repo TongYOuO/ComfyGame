@@ -16,6 +16,26 @@
         {{ loadError ? $t('modelPreview.loadFailed') : $t('modelPreview.loading') }}
       </div>
     </div>
+    <div v-if="!loading && !loadError && (clipNames.length || boneNames.length)"
+      class="ctv:absolute ctv:bottom-2 ctv:left-2 ctv:right-2 ctv:z-10 ctv:bg-black/80 ctv:p-2 ctv:rounded ctv:text-xs ctv:text-white ctv:flex ctv:flex-wrap ctv:gap-2"
+      @pointerdown.stop @wheel.stop>
+      <template v-if="clipNames.length">
+        <select v-model.number="clipIndex" aria-label="动作片段" class="ctv:bg-gray-800 ctv:max-w-40" @change="selectClip">
+          <option v-for="(name, index) in clipNames" :key="index" :value="index">{{ name }}</option>
+        </select>
+        <button @click="playing = !playing">{{ playing ? '暂停动作' : '播放动作' }}</button>
+        <input aria-label="动作进度" type="range" min="0" :max="duration" step="0.01" :value="playhead" @input="seek" class="ctv:w-28" />
+        <span>{{ playhead.toFixed(2) }} / {{ duration.toFixed(2) }} 秒</span>
+      </template>
+      <template v-if="boneNames.length">
+        <label><input v-model="showSkeleton" type="checkbox" /> 骨架（{{ boneNames.length }}）</label>
+        <select v-model="weightBone" aria-label="骨骼权重" class="ctv:bg-gray-800 ctv:max-w-44" @change="applyWeights">
+          <option value="">材质显示</option>
+          <option v-for="name in boneNames" :key="name" :value="name">{{ name }}</option>
+        </select>
+        <span v-if="weightBone">权重：蓝 0 → 红 1</span>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -65,6 +85,78 @@ let modelRoot: THREE.Object3D | null = null
 let modelDispose: (() => void) | null = null
 let sparkRenderer: THREE.Object3D | null = null
 let animationId: number | null = null
+let mixer: THREE.AnimationMixer | null = null
+let action: THREE.AnimationAction | null = null
+let clips: THREE.AnimationClip[] = []
+let skeletonHelper: THREE.SkeletonHelper | null = null
+let lastTick = 0
+const clipNames = ref<string[]>([])
+const clipIndex = ref(0)
+const playing = ref(false)
+const playhead = ref(0)
+const duration = ref(0)
+const boneNames = ref<string[]>([])
+const showSkeleton = ref(false)
+const weightBone = ref('')
+const weightRestores: Array<() => void> = []
+
+function selectClip(): void {
+  mixer?.stopAllAction()
+  const clip = clips[clipIndex.value]
+  action = mixer && clip ? mixer.clipAction(clip).reset().play() : null
+  duration.value = clip?.duration ?? 0
+  playhead.value = 0
+  playing.value = false
+  mixer?.update(0)
+}
+
+function seek(event: Event): void {
+  playing.value = false
+  if (!action || !mixer) return
+  action.time = Number((event.target as HTMLInputElement).value)
+  playhead.value = action.time
+  mixer.update(0)
+}
+
+function clearWeights(): void {
+  for (const restore of weightRestores.splice(0)) restore()
+}
+
+function applyWeights(): void {
+  clearWeights()
+  if (!modelRoot || !weightBone.value) return
+  modelRoot.traverse((child) => {
+    if (!(child instanceof THREE.SkinnedMesh)) return
+    const originalGeometry = child.geometry
+    const originalMaterial = child.material
+    const indices = originalGeometry.getAttribute('skinIndex')
+    const weights = originalGeometry.getAttribute('skinWeight')
+    if (!indices || !weights) return
+    const boneIndex = child.skeleton.bones.findIndex(b => b.name === weightBone.value)
+    const geometry = originalGeometry.clone()
+    const colors = new Float32Array(indices.count * 3)
+    const color = new THREE.Color()
+    for (let v = 0; v < indices.count; v++) {
+      let weight = 0
+      for (let k = 0; k < indices.itemSize; k++) {
+        if (indices.getComponent(v, k) === boneIndex) weight += weights.getComponent(v, k)
+      }
+      color.setHSL((1 - Math.min(1, weight)) * 2 / 3, 1, 0.5).toArray(colors, v * 3)
+    }
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
+    const material = new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide })
+    child.geometry = geometry
+    child.material = material
+    weightRestores.push(() => {
+      child.geometry = originalGeometry
+      child.material = originalMaterial
+      geometry.dispose()
+      material.dispose()
+    })
+  })
+}
+
+watch(showSkeleton, visible => { if (skeletonHelper) skeletonHelper.visible = visible })
 
 const mp = useModelPreview(props, emit, {
   getCamera: () => camera,
@@ -90,6 +182,21 @@ async function ensureSparkRenderer(): Promise<void> {
 }
 
 function disposeModelRoot(): void {
+  clearWeights()
+  weightBone.value = ''
+  playing.value = false
+  mixer?.stopAllAction()
+  if (modelRoot) mixer?.uncacheRoot(modelRoot)
+  mixer = null
+  action = null
+  clips = []
+  clipNames.value = []
+  boneNames.value = []
+  if (skeletonHelper) {
+    scene?.remove(skeletonHelper)
+    skeletonHelper.dispose()
+    skeletonHelper = null
+  }
   if (modelRoot && scene) scene.remove(modelRoot)
   modelRoot = null
   modelDispose?.()
@@ -114,7 +221,8 @@ function syncSize(): void {
 
 function frameModel(root: THREE.Object3D): void {
   if (!camera || !controls) return
-  const bounds = new THREE.Box3().setFromObject(root)
+  root.updateMatrixWorld(true)
+  const bounds = new THREE.Box3().setFromObject(root, true)
   const center = new THREE.Vector3()
   const size = new THREE.Vector3()
   bounds.getCenter(center)
@@ -136,6 +244,7 @@ function frameModel(root: THREE.Object3D): void {
 interface LoadedModel {
   root: THREE.Object3D
   dispose: (() => void) | null
+  clips?: THREE.AnimationClip[]
 }
 
 async function loadModelObject(url: string): Promise<LoadedModel> {
@@ -180,7 +289,7 @@ async function loadModelObject(url: string): Promise<LoadedModel> {
   }
 
   const assets = await loadCustomModelAssets(url)
-  return { root: cloneSkinned(assets.template), dispose: null }
+  return { root: cloneSkinned(assets.template), dispose: null, clips: assets.clips }
 }
 
 async function loadModel(url: string): Promise<void> {
@@ -208,6 +317,23 @@ async function loadModel(url: string): Promise<void> {
     if ((props.channel ?? 'material') !== 'material') {
       applyViewChannel(loaded.root, props.channel as ViewChannel)
     }
+    clips = loaded.clips ?? []
+    clipNames.value = clips.map(c => c.name || '未命名动作')
+    clipIndex.value = 0
+    if (clips.length) {
+      mixer = new THREE.AnimationMixer(loaded.root)
+      selectClip()
+    }
+    const bones = new Set<string>()
+    loaded.root.traverse(child => { if (child instanceof THREE.Bone) bones.add(child.name) })
+    boneNames.value = [...bones]
+    if (bones.size) {
+      skeletonHelper = new THREE.SkeletonHelper(loaded.root)
+      skeletonHelper.visible = showSkeleton.value
+      for (const material of Array.isArray(skeletonHelper.material) ? skeletonHelper.material : [skeletonHelper.material]) material.depthTest = false
+      skeletonHelper.renderOrder = 1000
+      scene.add(skeletonHelper)
+    }
     frameModel(loaded.root)
     loading.value = false
     emit('view-changed')
@@ -223,6 +349,13 @@ async function loadModel(url: string): Promise<void> {
 function animate(): void {
   animationId = requestAnimationFrame(animate)
   if (!view || !scene || !camera) return
+  const now = performance.now()
+  const delta = Math.min((now - lastTick) / 1000, 0.1)
+  lastTick = now
+  if (playing.value && mixer && action) {
+    mixer.update(delta)
+    playhead.value = action.time
+  }
   controls?.update()
   view.renderScene(scene, camera)
 }
@@ -265,6 +398,8 @@ watch(() => props.src, (url) => { void loadModel(url || '') })
 
 watch(() => props.channel, (ch) => {
   if (!modelRoot) return
+  clearWeights()
+  weightBone.value = ''
   mp.clearHighlight()
   applyViewChannel(modelRoot, (ch ?? 'material') as ViewChannel)
   if ((ch ?? 'material') === 'material') {

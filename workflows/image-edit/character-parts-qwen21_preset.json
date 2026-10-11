@@ -1,0 +1,27 @@
+{
+  "label": "角色部位拆分 · 原Qwen21单图分支",
+  "description": "原本地 Qwen Image 2.1 单图拆分分支：768 分辨率、20 步。主图与中文提示词从 Stage 输入；五个部位的各视角分别执行。",
+  "result": {
+    "type": "ui_save_url",
+    "node": "12"
+  },
+  "inputs": {
+    "1": {
+      "image": {
+        "from": "upstream_image:annotated[0]",
+        "required": true
+      }
+    },
+    "12": {
+      "filename_prefix": {
+        "from": "literal:ComfyTV_本地Qwen三视图/部件"
+      }
+    },
+    "9": {
+      "prompt": {
+        "from": "main_prompt",
+        "required": true
+      }
+    }
+  }
+}

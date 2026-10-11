@@ -118,6 +118,7 @@ from .poster import PosterStage
 from .storyboard_editor import StoryboardEditorStage
 from .material import MaterialStage
 from .split_part import SplitPartStage, MaskCleanup
+from .external_agent import AgentContext, AgentImageStage, AgentModelStage, AgentTextStage, AgentVideoStage
 from .custom_stage import CustomStage
 
 
@@ -188,7 +189,7 @@ def stage_classes() -> list:
         StoryboardEditorStage,
         MaterialStage,
         SplitPartStage, MaskCleanup,
-        CustomStage,
+        CustomStage, AgentContext, AgentImageStage, AgentModelStage, AgentTextStage, AgentVideoStage,
         *_bridge_classes(),
     ]
 

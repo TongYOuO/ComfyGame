@@ -1,5 +1,6 @@
 import time
 from ... import storage
+from ...storage import agent_tasks
 from ...nodes.stages import STAGE_META, registered_stage_names
 from ...runners import workflow_db
 
@@ -237,10 +238,19 @@ async def _get_stage(args: dict) -> dict:
     payload["node"] = str(node)
     result = await _shared.submit_command("get_stage", payload)
     if isinstance(result, dict):
+        project_id = (args.get("project_id") or result.get("project_id")
+                      or (result.get("widgets") or {}).get("project_id") or "default")
         result["latest_output"] = _latest_output_summary(
-            args.get("project_id") or result.get("project_id") or "default",
+            project_id,
             result.get("uid"), result.get("graph_node_id"),
             result.get("node_class"))
+        cls = str(result.get("node_class", "")).removeprefix("ComfyTV.")
+        if cls in agent_tasks.STAGE_TYPES:
+            tasks = agent_tasks.list_tasks(
+                project_id=project_id, stage_uid=result.get("uid"))
+            result["executor"] = "external-agent"
+            result["agent_task"] = tasks[0] if tasks else None
+            result["next_action"] = "任务 queued 时调用 agent_claim；领取后按快照提示词使用你自己的工具执行，完成后 agent_complete。没有任务时用 run_stage 提交。MCP 不自动唤醒 Codex。"
     return result
 
 def _latest_output_summary(project_id: str, uid, graph_node_id,
@@ -262,6 +272,7 @@ def _latest_output_summary(project_id: str, uid, graph_node_id,
         "created_at": row.get("created_at"),
         "payload_url": row.get("payload_url") or None,
         "picked_index": row.get("picked_index"),
+        "attachments": payload.get("attachments", []) if isinstance(payload, dict) else [],
         "images": [
             {"index": im.get("index"), "image_url": im.get("image_url") or im.get("url")}
             for im in images

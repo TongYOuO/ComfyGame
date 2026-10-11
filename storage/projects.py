@@ -9,7 +9,7 @@ from sqlalchemy import desc, select
 
 from .. import db
 from ..db import (
-    Asset, AssetCategory, AssetCategoryLink, ComfyServer, Entry, Output,
+    AgentTask, Asset, AssetCategory, AssetCategoryLink, ComfyServer, Entry, Output,
     Preset, Project, ProxyMedia, RemoteJob, Resource, StageParam,
 )
 
@@ -74,6 +74,7 @@ def delete_project(project_id: str) -> bool:
         proj = s.get(Project, project_id)
         if proj is None:
             return False
+        s.query(AgentTask).filter(AgentTask.project_id == project_id).delete()
         s.query(Output).filter(Output.project_id == project_id).delete()
         s.delete(proj)
         s.commit()

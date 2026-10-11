@@ -167,7 +167,7 @@ class TestProtocol:
             "director_get", "director_edit", "view_image", "fx_preview",
             "arrange_canvas",
             "scene_get", "scene_edit", "scene_capture", "scene_record", "layer_get", "layer_edit", "layer_capture",
-            "skill",
+            "skill", "agent_tasks", "agent_claim", "agent_complete", "agent_fail",
         }
         for t in tools.values():
             assert t["description"]

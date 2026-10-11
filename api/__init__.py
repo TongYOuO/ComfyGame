@@ -37,3 +37,5 @@ from . import llm        # noqa: F401
 from . import view_patch  # noqa: F401
 
 from .stages import _compute_input_usage  # noqa: F401
+
+from . import agent_tasks  # noqa: F401
