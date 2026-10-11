@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 import { apiFetch, apiSend } from '@/api'
 import { getStageUid, stageClassName } from '@/composables/stages/stageIdentity'
+import { collectRegionPrompts, isAgentStage } from './agentRegionPrompts'
 
 const OkSchema = z.object({ ok: z.boolean() })
 const ActivitySchema = z.object({ active: z.boolean() })
@@ -64,7 +65,7 @@ export function buildCanvasSnapshot(deps: CanvasMirrorDeps): { project_id: strin
   const stages: any[] = []
   for (const node of graph._nodes ?? []) {
     const cls = String(node?.comfyClass ?? node?.type ?? '')
-    if (!cls.startsWith('ComfyTV.')) continue
+    if (!cls.startsWith('ComfyTV.') || cls === 'ComfyTV.AgentContext') continue
     const prompt = widgetValue(node, 'main_prompt')
     stages.push({
       uid: getStageUid(node),
@@ -75,6 +76,7 @@ export function buildCanvasSnapshot(deps: CanvasMirrorDeps): { project_id: strin
       review_state: String(node.properties?.comfytv_review ?? ''),
       workflow: widgetValue(node, 'workflow'),
       prompt: prompt.slice(0, PROMPT_MAX_CHARS),
+      ...(isAgentStage(node) ? { region_prompts: collectRegionPrompts(node) } : {}),
       mentions: [...prompt.matchAll(MENTION_PAT)].map((m) => m[1]),
       inputs: stageInputs(graph, node),
       last_run: lastRun(deps.resolveStageState(node)),

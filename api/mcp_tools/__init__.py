@@ -141,3 +141,6 @@ TOOLS.update(media.TOOLS)
 TOOLS.update(director_scene.TOOLS)
 TOOLS.update(layer_editor.TOOLS)
 TOOLS["skill"] = SKILL_TOOL
+
+from . import agent_tasks
+TOOLS.update(agent_tasks.TOOLS)

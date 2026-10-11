@@ -125,6 +125,24 @@ class Output(Base):
     created_at:       Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
 
 
+class AgentTask(Base):
+    __tablename__ = "comfytv_agent_tasks"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True)
+    project_id: Mapped[str] = mapped_column(String, ForeignKey("comfytv_projects.id"), index=True)
+    stage_uid: Mapped[str] = mapped_column(String, index=True)
+    stage_node_id: Mapped[str] = mapped_column(String)
+    stage_class: Mapped[str] = mapped_column(String)
+    status: Mapped[str] = mapped_column(String, default="queued", index=True)
+    request_json: Mapped[str] = mapped_column(Text)
+    worker: Mapped[Optional[str]] = mapped_column(String, nullable=True)
+    claim_token: Mapped[Optional[str]] = mapped_column(String, nullable=True)
+    output_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("comfytv_outputs.id", ondelete="SET NULL"), nullable=True)
+    error: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now, onupdate=_now)
+
+
 class AssetCategory(Base):
     __tablename__ = "comfytv_asset_categories"
 

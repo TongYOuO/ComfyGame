@@ -36,6 +36,7 @@ import {
 } from '@/composables/stages/mcpGraphCommands'
 import { installWorkflowRegistrySync } from '@/composables/stages/workflowRegistrySync'
 import { sizingWarnings } from '@/composables/stages/sizingWarnings'
+import { collectRegionPrompts, isAgentStage } from './agentRegionPrompts'
 import { mentionSendOrders } from '@/composables/stages/imageSlotMentions'
 import { isStageNode, findStageNode } from '@/composables/stages/mcpStageLookup'
 import {
@@ -453,6 +454,7 @@ function handleGetStage(app: any, cmd: any): CommandResult {
     node_class: String(node.comfyClass ?? ''),
     title: String(node.title ?? ''),
     widgets,
+    ...(isAgentStage(node) ? { region_prompts: collectRegionPrompts(node) } : {}),
     inputs,
     outputs,
     media: mediaSummary(node, app?.graph),

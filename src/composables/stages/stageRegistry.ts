@@ -335,6 +335,10 @@ export const FLEX_FILL_STAGES = new Set([
 ])
 
 export const RICH_STAGE_MIN_HEIGHTS: Record<string, number> = {
+  'ComfyTV.AgentImageStage': 660,
+  'ComfyTV.AgentModelStage': 760,
+  'ComfyTV.AgentTextStage': 500,
+  'ComfyTV.AgentVideoStage': 660,
   'ComfyTV.PosterStage':     760,
   'ComfyTV.MultiangleStage': 640,
   'ComfyTV.RelightStage':    640,
